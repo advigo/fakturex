@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakturex - Modern fakturering för svenska företag</title>
+    <!-- Tailwind CSS v3 with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#E74c3c', // Requested professional color
+                            dark: '#2c3e50',
+                            light: '#f8fafc'
+                        },
+                        // Fallbacks from other pages for consistency
+                        "primary": "#E74c3c", 
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style data-purpose="layout-styles">
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        /* Kontakt page specific */
+        .group .group-open\:flex { display: none; }
+        .group:focus-within .group-open\:flex { display: flex; }
+        .group .group-open\:rotate-180 { transform: rotate(0deg); }
+        .group:focus-within .group-open\:rotate-180 { transform: rotate(180deg); }
+        .group:focus-within .group-open\:hidden { display: none; }
+    </style>
+</head>
+<body class="bg-brand-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300 flex flex-col min-h-screen">
+    
+    <!-- BEGIN: MainHeader (Standardized from Startsida) -->
+    <header class="bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between border-b-0">
+            <!-- Logo Section -->
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-2xl">F</span>
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+            </a>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-brand-primary font-bold transition-colors">Hem</a>
+                <a href="index.html#features" class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Funktioner</a>
+                <a href="index.html#pricing" class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Priser</a>
+                <a href="kontakt.html" class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Kontakt</a>
+            </div>
+            
+            <!-- Auth Buttons -->
+            <div class="flex items-center gap-4">
+                <button class="text-gray-600 dark:text-gray-300 font-medium px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">Logga in</button>
+                <button class="bg-brand-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all shadow-md">Prova gratis</button>
+            </div>
+        </nav>
+    </header>
+    <!-- END: MainHeader -->
+
+    <main class="flex-grow">
+        <!-- BEGIN: HeroSection -->
+        <section class="hero-gradient dark:bg-background-dark dark:bg-none py-20 lg:py-32 overflow-hidden" data-purpose="hero-banner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 bg-red-50 dark:bg-red-900/20 text-brand-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-red-100 dark:border-red-900/30">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-primary"></span>
+                        Nu med AI-stöd för smidigare bokföring
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-extrabold text-brand-dark dark:text-white leading-tight">
+                        Smidig fakturering för <span class="text-brand-primary">svenska</span> företagare.
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-lg">
+                        Hantera fakturor, offerter och ROT/RUT på halva tiden. Allt du behöver, utan krångliga avtal.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-brand-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-red-600 transition-all shadow-lg hover:shadow-xl">
+                            Prova gratis i 30 dagar
+                        </button>
+                        <div class="flex items-center gap-2 px-4 text-gray-500 dark:text-gray-400">
+                            <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+                            </svg>
+                            Ingen kortuppgift krävs
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Image Placeholder -->
+                <div class="relative">
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
+                        <img alt="Fakturex Dashboard Preview" class="rounded-lg w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAumxXOQGD0lCHWWbX9u5xHC4gK-WQcwPBkW_yOVzSe95Ehziwb2hDZFil9rif72ofS-7MrX5KhtuKg8oi7QE0CyDfcueQlzlH4lV_ejqxhC6HSEz4lhXSzqjzXrQ0YJSWmo_5EjGaLOMpOc68HCnlTRVDkDF4Tl5WQoivZPBfQfOTz4poehkoWzPjWv2rZlFfFhPbT1kACp1XlbAhfDoXm001Y6wlxupXlcNQYznB-B5dwKTRPdNJC87kshYwST9MqTeRstFSKNdg">
+                    </div>
+                    <!-- Floating UI elements -->
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl hidden md:block border border-gray-50 dark:border-gray-700">
+                        <p class="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Total Omsättning</p>
+                        <p class="text-2xl font-bold text-brand-dark dark:text-white">452.000 kr</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: HeroSection -->
+
+        <!-- BEGIN: FeaturesSection -->
+        <section class="py-24 bg-white dark:bg-background-dark" data-purpose="features-grid" id="features">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-dark dark:text-white mb-4">Allt du behöver för smidig fakturering</h2>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">Våra moduler är byggda för att samverka och göra din vardag som företagare enklare.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature: Invoicing -->
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group">
+                        <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm flex items-center justify-center mb-4 group-hover:bg-brand-primary transition-colors">
+                            <svg class="h-6 w-6 text-brand-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Fakturering</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Skapa proffsiga PDF-fakturor på sekunder. Stöd för ROT/RUT och omvänd moms.</p>
+                    </div>
+                    <!-- Feature: Quotes -->
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group">
+                        <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm flex items-center justify-center mb-4 group-hover:bg-brand-primary transition-colors">
+                            <svg class="h-6 w-6 text-brand-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Offerter</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Skicka snygga offerter och omvandla dem till fakturor med ett klick vid godkännande.</p>
+                    </div>
+                    <!-- Feature: Time Tracking -->
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group">
+                        <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm flex items-center justify-center mb-4 group-hover:bg-brand-primary transition-colors">
+                            <svg class="h-6 w-6 text-brand-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Tidrapportering</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Logga dina timmar direkt i appen och fakturera kunden direkt utan dubbelarbete.</p>
+                    </div>
+                    <!-- Feature: Accounting -->
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group">
+                        <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm flex items-center justify-center mb-4 group-hover:bg-brand-primary transition-colors">
+                            <svg class="h-6 w-6 text-brand-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 dark:text-white">Bokföring</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Automatiserad bokföring med SIE-export till din revisor eller annat system.</p>
+                    </div>
+                </div>
+                <!-- Secondary Features Row -->
+                <div class="mt-16 pt-12 border-t border-gray-100 dark:border-gray-800 grid md:grid-cols-3 gap-8 text-center" data-purpose="extra-features">
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded text-xs font-bold uppercase mb-2">Standard</span>
+                        <h4 class="font-bold text-brand-dark dark:text-white">SIE Import &amp; Export</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Flytta data sömlöst mellan system.</p>
+                    </div>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-purple-50 text-purple-600 rounded text-xs font-bold uppercase mb-2">Smart</span>
+                        <h4 class="font-bold text-brand-dark dark:text-white">AI-stöd</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Intelligent kategorisering av utlägg.</p>
+                    </div>
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-green-50 text-green-600 rounded text-xs font-bold uppercase mb-2">Trygghet</span>
+                        <h4 class="font-bold text-brand-dark dark:text-white">Lokal Backup</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Din data är alltid säker och tillgänglig.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: FeaturesSection -->
+
+        <!-- BEGIN: PricingSection -->
+        <section class="py-24 bg-brand-dark dark:bg-black text-white" data-purpose="pricing-table" id="pricing">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4 italic">Betala bara för det du behöver</h2>
+                    <p class="text-gray-400">Inga fasta paketpriser. Du väljer själv vilka moduler som ska vara aktiva.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pricing: Invoicing -->
+                    <div class="pricing-card bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-center">
+                        <h3 class="text-xl font-medium text-gray-300 mb-4">Fakturering</h3>
+                        <div class="flex items-baseline justify-center gap-1 mb-6">
+                            <span class="text-5xl font-bold">29</span>
+                            <span class="text-xl text-gray-400">kr/mån</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-3 mb-8 text-left">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                Obegränsat antal fakturor
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                ROT/RUT-stöd ingår
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 border border-white/20 rounded-xl font-bold hover:bg-white hover:text-brand-dark transition-all">Välj modul</button>
+                    </div>
+                    <!-- Pricing: Quotes & Time -->
+                    <div class="pricing-card bg-white dark:bg-gray-800 p-8 rounded-3xl text-center shadow-2xl scale-105 relative border dark:border-gray-700">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Mest Populär</div>
+                        <h3 class="text-xl font-medium text-brand-dark dark:text-white mb-4">Offert &amp; Tid</h3>
+                        <div class="flex items-baseline justify-center gap-1 mb-6">
+                            <span class="text-5xl font-bold text-brand-dark dark:text-white">29</span>
+                            <span class="text-xl text-gray-500 dark:text-gray-400">kr/mån</span>
+                        </div>
+                        <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-3 mb-8 text-left">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                Tidrapportering i mobilen
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                Digitala offerter
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-brand-primary text-white rounded-xl font-bold hover:bg-red-600 transition-all shadow-lg">Välj modul</button>
+                    </div>
+                    <!-- Pricing: Accounting -->
+                    <div class="pricing-card bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-center">
+                        <h3 class="text-xl font-medium text-gray-300 mb-4">Bokföring</h3>
+                        <div class="flex items-baseline justify-center gap-1 mb-6">
+                            <span class="text-5xl font-bold">49</span>
+                            <span class="text-xl text-gray-400">kr/mån</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-3 mb-8 text-left">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                Automatisk kontering
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                                SIE-filer för export
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 border border-white/20 rounded-xl font-bold hover:bg-white hover:text-brand-dark transition-all">Välj modul</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: PricingSection -->
+
+        <!-- BEGIN: CTASection -->
+        <section class="py-20 bg-white dark:bg-background-dark/80" data-purpose="final-cta">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-brand-dark dark:text-white mb-6">Redo att förenkla din bokföring?</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-10">Gör som tusentals andra svenska företagare. Starta din 30-dagars gratisperiod idag.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <input type="email" placeholder="Din e-postadress" class="px-6 py-4 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-primary focus:border-brand-primary w-full sm:w-80">
+                    <button class="bg-brand-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-red-600 transition-all shadow-lg">Kom igång</button>
+                </div>
+            </div>
+        </section>
+        <!-- END: CTASection -->
+    </main>
+
+    <!-- BEGIN: Footer (Standardized) -->
+    <footer class="bg-gray-50 dark:bg-[#111] border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-auto text-slate-800 dark:text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">F</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Förenklar fakturering för svenska småföretagare sedan 2018. Säkert, snabbt och enkelt.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Produkten</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Fakturering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">ROT &amp; RUT</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Tidrapportering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Bokföring</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Support</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Hjälpcenter</a></li>
+                        <li><a href="kontakt.html" class="hover:text-brand-primary transition-colors">Kontakta oss</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Kom igång-guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Rättsligt</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Användarvillkor</a></li>
+                        <li><a href="integritetspolicy.html" class="hover:text-brand-primary transition-colors">Integritetspolicy</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-xs">© 2024 Fakturex AB. Alla rättigheter förbehållna.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#" class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#" class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+</html>

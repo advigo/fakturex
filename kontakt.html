@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakta Oss - Fakturex</title>
+    <!-- Tailwind CSS v3 with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#E74c3c', // Requested professional color
+                            dark: '#2c3e50',
+                            light: '#f8fafc'
+                        },
+                        // Fallbacks from other pages for consistency
+                        "primary": "#E74c3c",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style data-purpose="layout-styles">
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Kontakt page specific */
+        .group .group-open\:flex {
+            display: none;
+        }
+
+        .group:focus-within .group-open\:flex {
+            display: flex;
+        }
+
+        .group .group-open\:rotate-180 {
+            transform: rotate(0deg);
+        }
+
+        .group:focus-within .group-open\:rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .group:focus-within .group-open\:hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-brand-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- BEGIN: MainHeader (Standardized from Startsida) -->
+    <header class="bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between border-b-0">
+            <!-- Logo Section -->
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-2xl">F</span>
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Hem</a>
+                <a href="index.html#features"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Funktioner</a>
+                <a href="index.html#pricing"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Priser</a>
+                <a href="kontakt.html" class="text-brand-primary font-bold transition-colors">Kontakt</a>
+            </div>
+
+            <!-- Auth Buttons -->
+            <div class="flex items-center gap-4">
+                <button
+                    class="text-gray-600 dark:text-gray-300 font-medium px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">Logga
+                    in</button>
+                <button
+                    class="bg-brand-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all shadow-md">Prova
+                    gratis</button>
+            </div>
+        </nav>
+    </header>
+    <!-- END: MainHeader -->
+
+    <main class="flex-grow">
+        <div class="container mx-auto px-4 py-16 sm:py-24 max-w-7xl">
+            <!-- PageHeading -->
+            <div class="text-center mb-12">
+                <h1
+                    class="text-brand-dark dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-tighter">
+                    Kontakta Oss</h1>
+                <p class="text-gray-500 dark:text-gray-400 text-lg font-normal leading-normal mt-4 max-w-2xl mx-auto">Vi
+                    finns här för att hjälpa till. Fyll i formuläret nedan eller använd en av våra alternativa
+                    kontaktmetoder.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                <!-- Left Column: Contact Form -->
+                <div
+                    class="lg:col-span-3 bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-8 border border-gray-100 dark:border-gray-700">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Full Name -->
+                            <label class="flex flex-col">
+                                <p class="text-brand-dark dark:text-gray-200 text-sm font-semibold leading-normal pb-2">
+                                    Fullständigt Namn</p>
+                                <input placeholder="Ange ditt namn"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-brand-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-brand-primary/50 border border-gray-200 dark:border-gray-600 bg-brand-light dark:bg-gray-700 h-12 placeholder:text-gray-400 px-4 text-base font-normal transition-colors"
+                                    value="">
+                            </label>
+
+                            <!-- Email Address -->
+                            <label class="flex flex-col">
+                                <p class="text-brand-dark dark:text-gray-200 text-sm font-semibold leading-normal pb-2">
+                                    E-postadress</p>
+                                <input placeholder="din.epost@exempel.com"
+                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-brand-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-brand-primary/50 border border-gray-200 dark:border-gray-600 bg-brand-light dark:bg-gray-700 h-12 placeholder:text-gray-400 px-4 text-base font-normal transition-colors"
+                                    value="">
+                            </label>
+                        </div>
+
+                        <!-- Subject -->
+                        <label class="flex flex-col">
+                            <p class="text-brand-dark dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Ämne
+                            </p>
+                            <select
+                                class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-brand-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-brand-primary/50 border border-gray-200 dark:border-gray-600 bg-brand-light dark:bg-gray-700 h-12 bg-no-repeat bg-right text-gray-500 dark:text-gray-300 dark:[color-scheme:dark] px-4 text-base font-normal transition-colors appearance-none md:bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207l5%205%205-5%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:24px] bg-[position:calc(100%-12px)_center]">
+                                <option value="" disabled selected>Välj ett ämne</option>
+                                <option value="general" class="text-brand-dark">Allmän Fråga</option>
+                                <option value="support" class="text-brand-dark">Teknisk Support</option>
+                                <option value="billing" class="text-brand-dark">Faktureringsfråga</option>
+                            </select>
+                        </label>
+
+                        <!-- Message -->
+                        <label class="flex flex-col">
+                            <p class="text-brand-dark dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Ditt
+                                Meddelande</p>
+                            <textarea placeholder="Skriv ditt meddelande här..."
+                                class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-xl text-brand-dark dark:text-white focus:outline-0 focus:ring-2 focus:ring-brand-primary/50 border border-gray-200 dark:border-gray-600 bg-brand-light dark:bg-gray-700 min-h-[140px] placeholder:text-gray-400 p-4 text-base font-normal transition-colors"></textarea>
+                        </label>
+
+                        <!-- Submit Button -->
+                        <button
+                            class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-6 bg-brand-primary text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-red-600 transition-all shadow-md">
+                            <span class="truncate">Skicka Meddelande</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Info & FAQ -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Contact Info Card -->
+                    <div
+                        class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-8 border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-brand-dark dark:text-white mb-6">Alternativa Kontaktvägar</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-red-50 dark:bg-red-900/20 rounded-lg flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-brand-primary">mail</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-dark dark:text-gray-200">E-post</p>
+                                    <a href="mailto:support@fakturex.se"
+                                        class="text-gray-500 dark:text-gray-400 hover:text-brand-primary dark:hover:text-brand-primary transition-colors">support@fakturex.se</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-10 h-10 bg-red-50 dark:bg-red-900/20 rounded-lg flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-brand-primary">schedule</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-dark dark:text-gray-200">Öppettider</p>
+                                    <p class="text-gray-500 dark:text-gray-400">Måndag - Fredag, 09:00 - 17:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-brand-dark dark:text-white px-2">Vanliga Frågor</h3>
+                        <div class="space-y-3">
+                            <!-- FAQ Item 1 -->
+                            <div tabindex="0"
+                                class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-brand-primary/50 transition-all duration-200">
+                                <div class="flex cursor-pointer items-center justify-between p-5">
+                                    <p class="font-bold text-brand-dark dark:text-gray-200">Hur fungerar 30-dagars
+                                        gratis provperiod?</p>
+                                    <span
+                                        class="material-symbols-outlined text-gray-500 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </div>
+                                <div class="overflow-hidden h-0 group-focus-within:h-auto">
+                                    <div class="px-5 pb-5">
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Under 30
+                                            dagar får du full tillgång till alla våra funktioner helt utan kostnad. Inga
+                                            kreditkortsuppgifter krävs för att starta. Efter provperioden kan du välja
+                                            en prenumerationsplan som passar dig.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div tabindex="0"
+                                class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-brand-primary/50 transition-all duration-200">
+                                <div class="flex cursor-pointer items-center justify-between p-5">
+                                    <p class="font-bold text-brand-dark dark:text-gray-200">Vad är ROT/RUT och hur
+                                        använder jag det?</p>
+                                    <span
+                                        class="material-symbols-outlined text-gray-500 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </div>
+                                <div class="overflow-hidden h-0 group-focus-within:h-auto">
+                                    <div class="px-5 pb-5">
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">ROT- och
+                                            RUT-avdrag är skattereduktioner för vissa typer av tjänster. Vår app har
+                                            inbyggt stöd för att enkelt lägga till ROT/RUT-avdrag direkt på dina
+                                            fakturor, och vi hjälper dig med beräkningarna.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div tabindex="0"
+                                class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus-within:ring-2 focus-within:ring-brand-primary/50 transition-all duration-200">
+                                <div class="flex cursor-pointer items-center justify-between p-5">
+                                    <p class="font-bold text-brand-dark dark:text-gray-200">Vad kostar det efter
+                                        provperioden?</p>
+                                    <span
+                                        class="material-symbols-outlined text-gray-500 transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </div>
+                                <div class="overflow-hidden h-0 group-focus-within:h-auto">
+                                    <div class="px-5 pb-5">
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Vi erbjuder
+                                            flera konkurrenskraftiga prisplaner baserade på dina behov. Du kan se alla
+                                            våra planer och deras funktioner på vår prissida.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BEGIN: Footer (Standardized) -->
+    <footer
+        class="bg-gray-50 dark:bg-[#111] border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-auto text-slate-800 dark:text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">F</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Förenklar fakturering för
+                        svenska småföretagare sedan 2018. Säkert, snabbt och enkelt.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Produkten</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Fakturering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">ROT &amp; RUT</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Tidrapportering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Bokföring</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Support</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Hjälpcenter</a></li>
+                        <li><a href="kontakt.html" class="hover:text-brand-primary transition-colors">Kontakta oss</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Kom igång-guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Rättsligt</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Användarvillkor</a></li>
+                        <li><a href="integritetspolicy.html"
+                                class="hover:text-brand-primary transition-colors">Integritetspolicy</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-xs">© 2024 Fakturex AB. Alla rättigheter förbehållna.</p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>

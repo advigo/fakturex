@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integritetspolicy - Fakturex</title>
+    <!-- Tailwind CSS v3 with plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#E74c3c', // Requested professional color
+                            dark: '#2c3e50',
+                            light: '#f8fafc'
+                        },
+                        // Fallbacks from other pages for consistency
+                        "primary": "#E74c3c",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211311"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style data-purpose="layout-styles">
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Kontakt page specific */
+        .group .group-open\:flex {
+            display: none;
+        }
+
+        .group:focus-within .group-open\:flex {
+            display: flex;
+        }
+
+        .group .group-open\:rotate-180 {
+            transform: rotate(0deg);
+        }
+
+        .group:focus-within .group-open\:rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .group:focus-within .group-open\:hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-brand-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- BEGIN: MainHeader (Standardized from Startsida) -->
+    <header class="bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between border-b-0">
+            <!-- Logo Section -->
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-2xl">F</span>
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Hem</a>
+                <a href="index.html#features"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Funktioner</a>
+                <a href="index.html#pricing"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Priser</a>
+                <a href="kontakt.html"
+                    class="text-gray-600 dark:text-gray-300 hover:text-brand-primary font-medium transition-colors">Kontakt</a>
+            </div>
+
+            <!-- Auth Buttons -->
+            <div class="flex items-center gap-4">
+                <button
+                    class="text-gray-600 dark:text-gray-300 font-medium px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">Logga
+                    in</button>
+                <button
+                    class="bg-brand-primary text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all shadow-md">Prova
+                    gratis</button>
+            </div>
+        </nav>
+    </header>
+    <!-- END: MainHeader -->
+
+    <main class="flex-grow flex justify-center py-12 px-6 md:px-20 max-w-7xl mx-auto w-full">
+        <div
+            class="w-full flex flex-col bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+            <!-- Page Header -->
+            <div class="flex flex-col gap-4 mb-12">
+                <h1
+                    class="text-brand-dark dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                    Integritetspolicy</h1>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-brand-primary text-sm">calendar_today</span>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Senast uppdaterad: 24 Maj 2024</p>
+                </div>
+            </div>
+
+            <!-- Intro Section -->
+            <div class="prose prose-slate dark:prose-invert max-w-none">
+                <p
+                    class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-10 border-l-4 border-brand-primary pl-6 py-3 bg-red-50 dark:bg-red-900/10 rounded-r-lg">
+                    Din integritet är viktig för oss på Fakturex. Vi är dedikerade till att skydda dina personuppgifter
+                    och vara transparenta med hur vi samlar in, använder och delar information om dig. Denna policy
+                    beskriver dina rättigheter och hur vi följer gällande dataskyddsregler (GDPR).
+                </p>
+
+                <!-- Content Sections -->
+                <div class="space-y-12">
+                    <section>
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-primary">admin_panel_settings</span>
+                            1. Hantering av personuppgifter
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                            Fakturex är personuppgiftsansvarig för de behandlingar som beskrivs i denna policy. Vi
+                            vidtar tekniska och organisatoriska åtgärder för att säkerställa att dina data hanteras
+                            säkert och i enlighet med gällande lagstiftning. Vi säljer aldrig dina personuppgifter till
+                            tredje part.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-primary">database</span>
+                            2. Vilken information samlar vi in?
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                            Vi samlar in information som du lämnar till oss direkt, samt information som genereras när
+                            du använder våra tjänster. Detta inkluderar:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400">
+                            <li><strong class="text-brand-dark dark:text-gray-200">Identitetsinformation:</strong> Namn,
+                                personnummer eller organisationsnummer.</li>
+                            <li><strong class="text-brand-dark dark:text-gray-200">Kontaktinformation:</strong>
+                                E-postadress, telefonnummer och adress.</li>
+                            <li><strong class="text-brand-dark dark:text-gray-200">Finansiell information:</strong>
+                                Betalningsuppgifter och faktureringshistorik.</li>
+                            <li><strong class="text-brand-dark dark:text-gray-200">Teknisk data:</strong> IP-adress,
+                                webbläsartyp och användningsstatistik via cookies.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-primary">visibility</span>
+                            3. Hur vi använder din information
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                            Vi använder informationen för att tillhandahålla, underhålla och förbättra våra tjänster,
+                            inklusive:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-400">
+                            <li>Att administrera ditt konto och genomföra faktureringstjänster.</li>
+                            <li>Att kommunicera med dig gällande supportärenden eller viktiga uppdateringar.</li>
+                            <li>Att följa lagstadgade krav, såsom bokföringslagen.</li>
+                            <li>Att analysera och förbättra användarupplevelsen på vår plattform.</li>
+                        </ul>
+                    </section>
+
+                    <section
+                        class="p-6 bg-red-50 dark:bg-gray-700 rounded-xl border border-red-100 dark:border-gray-600">
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-primary">cookie</span>
+                            4. Cookies
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            Fakturex använder cookies för att förbättra din webbupplevelse. Cookies är små textfiler som
+                            sparas på din enhet. Vi använder både sessionscookies (som försvinner när du stänger
+                            webbläsaren) och permanenta cookies (som stannar kvar under en bestämd tid).
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Du kan välja att inaktivera cookies i din webbläsares inställningar, men observera att vissa
+                            delar av våra tjänster då kan sluta fungera korrekt.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-primary">gavel</span>
+                            5. Dina rättigheter
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                            Enligt GDPR har du flera rättigheter gällande dina personuppgifter:
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div
+                                class="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-bold text-brand-dark dark:text-gray-200 mb-1">Rätt till tillgång</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Du kan begära en kopia av de
+                                    uppgifter vi har om dig.</p>
+                            </div>
+                            <div
+                                class="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-bold text-brand-dark dark:text-gray-200 mb-1">Rätt till rättelse</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Du kan be oss korrigera felaktig
+                                    information.</p>
+                            </div>
+                            <div
+                                class="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-bold text-brand-dark dark:text-gray-200 mb-1">Rätt till radering</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Du kan be oss radera dina data under
+                                    vissa omständigheter.</p>
+                            </div>
+                            <div
+                                class="p-4 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <h3 class="font-bold text-brand-dark dark:text-gray-200 mb-1">Dataportabilitet</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Du kan be att få dina data överförda
+                                    till en annan tjänst.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="border-t border-gray-200 dark:border-gray-700 pt-8 mt-12">
+                        <h2 class="text-brand-dark dark:text-white text-2xl font-bold mb-4">Kontakta oss</h2>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Om du har frågor om denna policy eller vår hantering av personuppgifter, vänligen kontakta
+                            vårt dataskyddsombud på:
+                        </p>
+                        <div
+                            class="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg inline-block border border-gray-100 dark:border-gray-600">
+                            <p class="font-semibold text-brand-primary">privacy@fakturex.se</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fakturex AB, Box 123, 111 21
+                                Stockholm</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BEGIN: Footer (Standardized) -->
+    <footer
+        class="bg-gray-50 dark:bg-[#111] border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-auto text-slate-800 dark:text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">F</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-brand-dark dark:text-white">Fakturex</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Förenklar fakturering för
+                        svenska småföretagare sedan 2018. Säkert, snabbt och enkelt.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Produkten</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Fakturering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">ROT &amp; RUT</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Tidrapportering</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Bokföring</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Support</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Hjälpcenter</a></li>
+                        <li><a href="kontakt.html" class="hover:text-brand-primary transition-colors">Kontakta oss</a>
+                        </li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Kom igång-guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-dark dark:text-white mb-4">Rättsligt</h4>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Användarvillkor</a></li>
+                        <li><a href="integritetspolicy.html"
+                                class="text-brand-primary font-bold transition-colors">Integritetspolicy</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 text-xs">© 2024 Fakturex AB. Alla rättigheter förbehållna.</p>
+                <div class="flex gap-4">
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                    <a href="#"
+                        class="w-5 h-5 bg-gray-300 dark:bg-gray-700 hover:bg-brand-primary dark:hover:bg-brand-primary transition-colors rounded-full"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>
