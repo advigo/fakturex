@@ -142,19 +142,89 @@
                         </div>
                     </div>
                 </div>
-                <!-- Hero Image Placeholder -->
-                <div class="relative">
-                    <div
-                        class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700">
-                        <img alt="Fakturex Dashboard Preview" class="rounded-lg w-full h-auto"
-                            src="img/Enkel fakturering online.png">
+                <!-- Hero Slider -->
+                <div class="relative w-full max-w-2xl mx-auto pb-12">
+                    <div class="overflow-hidden relative pb-8 md:pb-10">
+                        <div id="slider-track"
+                            class="flex transition-transform duration-700 ease-in-out w-[300%] items-center"
+                            style="transform: translateX(0%);">
+
+                            <!-- Slide 1: Original Dashboard -->
+                            <div class="w-1/3 flex-shrink-0 px-2 sm:px-4 flex flex-col justify-center">
+                                <div class="relative w-full">
+                                    <div
+                                        class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 relative z-10 w-full">
+                                        <img alt="Fakturex Dashboard Preview"
+                                            class="rounded-lg w-full h-auto object-contain"
+                                            src="img/Enkel fakturering online.png">
+                                    </div>
+                                    <!-- Floating UI elements -->
+                                    <div
+                                        class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl hidden md:block border border-gray-50 dark:border-gray-700 z-20">
+                                        <p class="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">
+                                            Total Omsättning</p>
+                                        <p class="text-2xl font-bold text-brand-dark dark:text-white">452.000 kr</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Tidrapportering in Mobile -->
+                            <div
+                                class="w-1/3 flex-shrink-0 px-2 sm:px-4 flex flex-col justify-center items-center py-4">
+                                <div
+                                    class="relative w-full max-w-[180px] sm:max-w-[220px] shadow-2xl rounded-[2rem] bg-gray-900 overflow-hidden border-[10px] sm:border-[12px] border-gray-900">
+                                    <!-- Notch -->
+                                    <div
+                                        class="absolute top-0 inset-x-0 h-4 sm:h-5 bg-gray-900 rounded-b-2xl w-24 sm:w-28 mx-auto z-20">
+                                    </div>
+                                    <!-- Screen Content -->
+                                    <div
+                                        class="bg-white dark:bg-gray-800 w-full h-[340px] sm:h-[400px] overflow-hidden rounded-[1.2rem] relative z-10 bg-gray-50 flex items-start">
+                                        <img alt="Tidrapportering Mobil" class="w-full h-auto object-cover object-top"
+                                            src="img/tidrapportering.png"
+                                            onerror="this.src='https://placehold.co/400x800/2c3e50/white?text=Tidrapportering'">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Bokföring with text -->
+                            <div class="w-1/3 flex-shrink-0 px-2 sm:px-4 flex flex-col justify-center">
+                                <div
+                                    class="relative bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-700 group overflow-hidden w-full h-full flex items-center">
+                                    <img alt="Bokföring"
+                                        class="rounded-lg w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700"
+                                        src="img/bokforing.png"
+                                        onerror="this.src='https://placehold.co/800x600/2c3e50/white?text=Bokföring'">
+                                    <!-- Overlay Text -->
+                                    <div
+                                        class="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 bg-[#1c1e22]/90 dark:bg-black/90 backdrop-blur-md px-5 py-3 sm:px-6 sm:py-4 rounded-xl shadow-2xl border border-white/20 transform translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                        <div class="flex items-center gap-2 sm:gap-3">
+                                            <span
+                                                class="flex h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-blue-500 relative shrink-0">
+                                                <span
+                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                            </span>
+                                            <p
+                                                class="text-white font-bold text-base sm:text-xl md:text-2xl tracking-wide whitespace-nowrap">
+                                                Smart AI Bokföring</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Floating UI elements -->
-                    <div
-                        class="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl hidden md:block border border-gray-50 dark:border-gray-700">
-                        <p class="text-xs text-gray-400 dark:text-gray-500 uppercase font-bold mb-1">Total Omsättning
-                        </p>
-                        <p class="text-2xl font-bold text-brand-dark dark:text-white">452.000 kr</p>
+
+                    <!-- Slider Navigation (Dots) -->
+                    <div class="absolute bottom-0 left-0 right-0 flex justify-center gap-3 z-30" id="slider-dots">
+                        <button
+                            class="w-3 h-3 rounded-full bg-brand-primary transition-all duration-300 transform scale-125 focus:outline-none"
+                            aria-label="Gå till bild 1"></button>
+                        <button
+                            class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 transition-all duration-300 focus:outline-none"
+                            aria-label="Gå till bild 2"></button>
+                        <button
+                            class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 transition-all duration-300 focus:outline-none"
+                            aria-label="Gå till bild 3"></button>
                     </div>
                 </div>
             </div>
@@ -263,8 +333,21 @@
         <!-- END: FeaturesSection -->
 
         <!-- BEGIN: PricingSection -->
-        <section class="py-24 bg-brand-dark dark:bg-black text-white" data-purpose="pricing-table" id="pricing">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section class="relative py-24 bg-brand-dark dark:bg-black text-white overflow-hidden"
+            data-purpose="pricing-table" id="pricing">
+            <!-- Background Video Loop -->
+            <video autoplay loop muted playsinline volume="0" poster="img/Enkel fakturering online.png"
+                class="absolute inset-0 w-full h-full object-cover z-0 filter blur-sm scale-105 pointer-events-none">
+                <!-- Primary: Local video (If user uploads to img/office-bg.mp4) -->
+                <source src="img/office-bg.mp4" type="video/mp4">
+                <!-- Fallback: Ultra-stable Google Storage public MP4 (Guaranteed no CORS block) -->
+                <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                    type="video/mp4">
+            </video>
+            <!-- Overlay for perfect text readability -->
+            <div class="absolute inset-0 bg-brand-dark/60 dark:bg-black/60 z-0 pointer-events-none"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl lg:text-4xl font-bold mb-4 italic">Betala bara för det du behöver</h2>
                     <p class="text-gray-400">Inga fasta paketpriser. Du väljer själv vilka moduler som ska vara aktiva.
@@ -273,11 +356,11 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Pricing: Invoicing -->
                     <div
-                        class="pricing-card bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-center">
-                        <h3 class="text-xl font-medium text-gray-300 mb-4">Fakturering</h3>
+                        class="pricing-card bg-white/10 backdrop-blur-md border border-white/20 shadow-xl p-8 rounded-3xl text-center">
+                        <h3 class="text-xl font-medium text-gray-200 mb-4">Fakturering</h3>
                         <div class="flex items-baseline justify-center gap-1 mb-6">
                             <span class="text-5xl font-bold">29</span>
-                            <span class="text-xl text-gray-400">kr/mån</span>
+                            <span class="text-xl text-gray-300">kr/mån</span>
                         </div>
                         <ul class="text-sm text-gray-400 space-y-3 mb-8 text-left">
                             <li class="flex items-center gap-2">
@@ -336,11 +419,11 @@
                     </div>
                     <!-- Pricing: Accounting -->
                     <div
-                        class="pricing-card bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl text-center">
-                        <h3 class="text-xl font-medium text-gray-300 mb-4">Bokföring</h3>
+                        class="pricing-card bg-white/10 backdrop-blur-md border border-white/20 shadow-xl p-8 rounded-3xl text-center">
+                        <h3 class="text-xl font-medium text-gray-200 mb-4">Bokföring</h3>
                         <div class="flex items-baseline justify-center gap-1 mb-6">
                             <span class="text-5xl font-bold">49</span>
-                            <span class="text-xl text-gray-400">kr/mån</span>
+                            <span class="text-xl text-gray-300">kr/mån</span>
                         </div>
                         <ul class="text-sm text-gray-400 space-y-3 mb-8 text-left">
                             <li class="flex items-center gap-2">
@@ -445,6 +528,58 @@
         </div>
     </footer>
     <!-- END: Footer -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('slider-track');
+            if (!track) return;
+
+            const dots = document.querySelectorAll('#slider-dots button');
+            const totalSlides = 3;
+            let currentSlide = 0;
+            let slideInterval;
+
+            const updateSlider = () => {
+                // Update track transform based on currentSlide (0, 1, or 2)
+                const percentage = -(currentSlide * (100 / totalSlides));
+                track.style.transform = `translateX(${percentage}%)`;
+
+                // Update dots styling
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-gray-300', 'dark:bg-gray-600', 'hover:bg-gray-400', 'dark:hover:bg-gray-500');
+                        dot.classList.add('bg-brand-primary', 'scale-125');
+                    } else {
+                        dot.classList.add('bg-gray-300', 'dark:bg-gray-600', 'hover:bg-gray-400', 'dark:hover:bg-gray-500');
+                        dot.classList.remove('bg-brand-primary', 'scale-125');
+                    }
+                });
+            };
+
+            const nextSlide = () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            };
+
+            const startAutoSlide = () => {
+                slideInterval = setInterval(nextSlide, 5000); // 5 seconds interval
+            };
+
+            // Set up click events on dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                    // Reset interval when user clicks
+                    clearInterval(slideInterval);
+                    startAutoSlide();
+                });
+            });
+
+            // Start auto slide
+            startAutoSlide();
+        });
+    </script>
 </body>
 
 </html>
